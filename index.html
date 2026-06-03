@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Μαρία Πλιάκου — Κλινική Ψυχολόγος · Ψυχοθεραπεύτρια CBT | Αθήνα & Online</title>
+<meta name="description" content="Μαρία Πλιάκου, Κλινική Ψυχολόγος και Ψυχοθεραπεύτρια CBT στην Καισαριανή, Αθήνα. Ατομική ψυχοθεραπεία ενηλίκων & εφήβων, συμβουλευτική γονέων, online συνεδρίες." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF8F5;
+    --bg-2: #F2EFE9;
+    --bg-3: #E8E2D6;
+    --ink: #1A1714;
+    --ink-soft: #4A433A;
+    --muted: #8B8174;
+    --line: #D9D2C4;
+    --terracotta: #B5765A;
+    --terracotta-deep: #8E5A43;
+    --sage: #8A9A82;
+    --sand: #D6C9B0;
+    --cream: #EFE9DC;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    --maxw: 1280px;
+    --radius: 4px;
+    --ease: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Luxury Noise Texture Overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  
+  h1, h2, h3, h4 { 
+    font-family: var(--serif); 
+    font-weight: 500; 
+    color: var(--ink); 
+    letter-spacing: -0.02em; 
+    line-height: 1.1; 
+  }
+  
+  h1 { font-size: clamp(3rem, 7vw, 5.5rem); }
+  h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
+  h3 { font-size: clamp(1.5rem, 2.5vw, 2.2rem); }
+  p { color: var(--ink-soft); font-weight: 300; }
+  em { font-style: italic; color: var(--terracotta-deep); font-weight: 400; }
+
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 40px; }
+  
+  .eyebrow {
+    font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase;
+    font-weight: 600; color: var(--terracotta-deep);
+    display: inline-flex; align-items: center; gap: 16px;
+  }
+  .eyebrow::before { content: ""; width: 40px; height: 1px; background: var(--terracotta); }
+
+  /* NAV */
+  header.nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: transparent;
+    border-bottom: 1px solid transparent; transition: all 0.5s var(--ease);
+    padding: 10px 0;
+  }
+  header.nav.scrolled { 
+    background: rgba(250, 248, 245, 0.9); 
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom-color: rgba(217, 210, 196, 0.5); 
+    padding: 0;
+  }
+  
+  .nav-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 18px 40px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  
+  .brand { display: flex; align-items: center; gap: 16px; cursor: pointer; }
+  /* TRUE TO SIZE LOGO - No crop */
+  .brand img { 
+    height: 52px; 
+    width: auto; 
+    object-fit: contain; 
+    border-radius: 0;
+    transition: transform 0.4s var(--ease);
+  }
+  .brand:hover img { transform: scale(1.05); }
+  
+  .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .brand-text strong { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--ink); }
+  .brand-text span { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+  
+  nav.links { display: flex; align-items: center; gap: 40px; }
+  nav.links a {
+    font-size: 0.85rem; color: var(--ink-soft); font-weight: 500; letter-spacing: 0.05em;
+    position: relative; padding: 8px 0; transition: color 0.3s; cursor: pointer;
+  }
+  nav.links a:hover, nav.links a.active { color: var(--ink); }
+  nav.links a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; 
+    background: var(--terracotta); transform: scaleX(0); transform-origin: right; 
+    transition: transform 0.4s var(--ease);
+  }
+  nav.links a:hover::after, nav.links a.active::after { transform: scaleX(1); transform-origin: left; }
+  
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+    padding: 16px 32px; border: none; cursor: pointer; font-family: var(--sans);
+    font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;
+    transition: all 0.4s var(--ease); border-radius: 100px; /* Pill shape for luxury */
+    position: relative; overflow: hidden;
+  }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-primary:hover { 
+    background: var(--terracotta-deep); 
+    transform: translateY(-3px); 
+    box-shadow: 0 10px 20px rgba(142, 90, 67, 0.2); 
+  }
+  .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .btn-outline:hover { background: var(--bg-2); border-color: var(--ink); transform: translateY(-3px); }
+  .btn-sm { padding: 12px 24px; font-size: 0.75rem; }
+
+  /* Mobile menu */
+  .hamburger { display: none; background: none; border: none; cursor: pointer; width: 40px; height: 40px; flex-direction: column; justify-content: center; align-items: flex-end; gap: 6px; z-index: 101; }
+  .hamburger span { display: block; height: 1px; background: var(--ink); transition: all 0.4s var(--ease); }
+  .hamburger span:nth-child(1) { width: 24px; }
+  .hamburger span:nth-child(2) { width: 18px; }
+  .hamburger span:nth-child(3) { width: 24px; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); width: 24px; }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 24px; }
+
+  .mobile-menu {
+    position: fixed; inset: 0; background: var(--bg); z-index: 99;
+    padding: 120px 40px 40px; flex-direction: column; gap: 20px;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s var(--ease);
+    display: flex;
+  }
+  .mobile-menu.open { opacity: 1; pointer-events: all; }
+  .mobile-menu a {
+    font-family: var(--serif); font-size: 2.5rem; color: var(--ink);
+    padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+    transform: translateY(20px); opacity: 0; transition: all 0.4s var(--ease);
+  }
+  .mobile-menu.open a { transform: translateY(0); opacity: 1; }
+  .mobile-menu a:nth-child(1) { transition-delay: 0.1s; }
+  .mobile-menu a:nth-child(2) { transition-delay: 0.15s; }
+  .mobile-menu a:nth-child(3) { transition-delay: 0.2s; }
+  .mobile-menu a:nth-child(4) { transition-delay: 0.25s; }
+  .mobile-menu a:nth-child(5) { transition-delay: 0.3s; }
+
+  /* PAGES */
+  .page { display: none; padding-top: 100px; }
+  .page.is-active { display: block; animation: pageIn 0.8s var(--ease) forwards; }
+  @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* REVEAL ANIMATIONS */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
+
+  /* HERO (Redesigned) */
+  .hero { position: relative; padding: 60px 0 140px; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
+  
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow { margin-bottom: 40px; }
+  .hero h1 { margin-bottom: 32px; }
+  .hero .lead { font-size: 1.25rem; line-height: 1.8; max-width: 540px; margin-bottom: 48px; color: var(--ink-soft); }
+  .hero-ctas { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 60px; }
+  
+  .hero-stats {
+    display: flex; gap: 40px; padding-top: 40px; border-top: 1px solid var(--line); max-width: 600px;
+  }
+  .stat strong { display: block; font-family: var(--serif); font-size: 2rem; color: var(--ink); font-weight: 400; margin-bottom: 4px; line-height: 1; }
+  .stat span { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+  
+  /* Stunning Image Treatment in Hero */
+  .hero-visual-wrapper { position: relative; display: flex; justify-content: flex-end; }
+  .hero-arch {
+    width: 90%; max-width: 480px; aspect-ratio: 4/5; 
+    border-radius: 200px 200px 0 0; /* Arch shape */
+    overflow: hidden; position: relative;
+    box-shadow: 0 40px 80px -20px rgba(43, 38, 32, 0.15);
+    transform: translateY(20px); opacity: 0;
+    animation: imageFloatUp 1.2s var(--ease) 0.3s forwards;
+  }
+  @keyframes imageFloatUp { to { transform: translateY(0); opacity: 1; } }
+  
+  .hero-arch img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(0.9) contrast(1.05);
+    transition: transform 10s ease-out;
+  }
+  .hero-arch:hover img { transform: scale(1.05); }
+
+  /* Floating Badge over image */
+  .hero-badge {
+    position: absolute; bottom: 40px; left: -30px;
+    background: rgba(250, 248, 245, 0.95);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding: 20px 24px; border-radius: var(--radius);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    display: flex; align-items: center; gap: 16px;
+    opacity: 0; transform: translateX(-20px);
+    animation: badgeIn 1s var(--ease) 1s forwards;
+  }
+  @keyframes badgeIn { to { opacity: 1; transform: translateX(0); } }
+  .hero-badge-icon {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--terracotta);
+    color: white; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-style: italic; font-size: 1.2rem;
+  }
+  .hero-badge-text strong { display: block; font-family: var(--serif); font-size: 1.1rem; color: var(--ink); }
+  .hero-badge-text span { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* Abstract Decoration behind image */
+  .hero-shape {
+    position: absolute; right: -50px; top: -50px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, var(--sand) 0%, rgba(214,201,176,0) 70%);
+    filter: blur(40px); z-index: -1; opacity: 0.6;
+    animation: pulseShape 8s ease-in-out infinite alternate;
+  }
+  @keyframes pulseShape { from { transform: scale(1) translate(0,0); } to { transform: scale(1.2) translate(-20px, 20px); } }
+
+  /* SECTION DEFAULTS */
+  section.block { padding: 140px 0; position: relative; }
+  .section-head { max-width: 720px; margin-bottom: 80px; }
+  .section-head .eyebrow { margin-bottom: 24px; }
+  .section-head h2 { margin-bottom: 24px; }
+  .section-head p { font-size: 1.15rem; line-height: 1.8; }
+  .alt-bg { background: var(--bg-2); }
+
+  /* WELCOME */
+  .welcome { padding: 140px 0; background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .welcome-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; align-items: start; }
+  .welcome-text p { font-size: 1.2rem; line-height: 1.9; margin-bottom: 24px; color: var(--ink); font-weight: 300; }
+  .welcome-text p:last-child { color: var(--ink-soft); font-size: 1.05rem; }
+
+  /* ABOUT PAGE */
+  .about-hero { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 100px; align-items: center; margin-bottom: 120px; }
+  .about-photo { position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 8px; box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9) contrast(1.05); }
+  .about-credentials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 60px; padding: 40px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .cred { padding: 0 32px; border-right: 1px solid var(--line); }
+  .cred:last-child { border-right: none; }
+  .cred strong { display: block; font-family: var(--serif); font-size: 1.5rem; color: var(--ink); margin-bottom: 8px; }
+  .cred span { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  
+  .bio-block { margin-bottom: 80px; max-width: 800px; }
+  .bio-block h3 { margin-bottom: 24px; font-size: 2rem; color: var(--ink); }
+  .bio-block p { font-size: 1.1rem; line-height: 1.9; margin-bottom: 20px; }
+  .license-tag { display: inline-flex; align-items: center; gap: 12px; padding: 14px 24px; background: white; border: 1px solid var(--line); font-size: 0.85rem; color: var(--ink-soft); letter-spacing: 0.05em; border-radius: 100px; margin-top: 32px; }
+
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .service {
+    background: var(--bg); padding: 56px 48px; border: 1px solid var(--line);
+    border-radius: 8px; transition: all 0.5s var(--ease); position: relative; overflow: hidden;
+  }
+  .service:hover { 
+    transform: translateY(-8px); 
+    border-color: var(--terracotta); 
+    box-shadow: 0 30px 60px -20px rgba(142, 90, 67, 0.15); 
+    background: white;
+  }
+  .service-num { font-family: var(--serif); font-size: 1.2rem; font-style: italic; color: var(--terracotta); margin-bottom: 24px; }
+  .service h3 { margin-bottom: 16px; font-size: 2rem; }
+  .service .tagline { font-size: 0.85rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .service p { font-size: 1rem; line-height: 1.8; margin-bottom: 24px; }
+  .service ul { list-style: none; margin: 24px 0 32px; }
+  .service ul li { font-size: 0.95rem; color: var(--ink-soft); padding: 8px 0 8px 28px; position: relative; }
+  .service ul li::before { content: "→"; position: absolute; left: 0; top: 8px; color: var(--terracotta); font-family: var(--serif); }
+  .service-foot { margin-top: auto; padding-top: 24px; border-top: 1px solid var(--line); font-size: 0.8rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  
+  .practical { margin-top: 80px; padding: 60px; background: white; border: 1px solid var(--line); border-radius: 8px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.02); }
+  .practical div strong { display: block; font-family: var(--serif); font-size: 1.4rem; color: var(--ink); margin-bottom: 8px; }
+  .practical div span { font-size: 0.95rem; color: var(--ink-soft); }
+
+  /* APPROACH */
+  .approach-intro { font-size: 1.3rem; line-height: 1.9; max-width: 900px; margin-bottom: 100px; color: var(--ink); font-weight: 300; }
+  .approach-intro em { font-size: 1.5rem; }
+  .pillars { display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .pillar { display: grid; grid-template-columns: 100px 1.5fr 2fr; gap: 60px; padding: 60px 0; border-bottom: 1px solid var(--line); align-items: start; transition: background 0.4s; }
+  .pillar:hover { background: rgba(255,255,255,0.4); }
+  .pillar-num { font-family: var(--serif); font-size: 3rem; font-style: italic; color: var(--terracotta); font-weight: 400; line-height: 1; }
+  .pillar h3 { font-size: 1.8rem; margin-top: 5px; }
+  .pillar p { font-size: 1.1rem; line-height: 1.8; }
+  
+  .inclusion { margin-top: 100px; padding: 80px; background: var(--ink); color: var(--bg); border-radius: 8px; text-align: center; }
+  .inclusion .eyebrow { color: var(--terracotta); }
+  .inclusion .eyebrow::before { background: var(--terracotta); }
+  .inclusion h3 { color: white; margin: 24px 0; font-size: 2.5rem; }
+  .inclusion p { color: rgba(250,248,245,0.8); max-width: 720px; font-size: 1.15rem; line-height: 1.8; margin: 0 auto; }
+
+  /* TESTIMONIALS */
+  .testimonials { padding: 140px 0; background: white; border-bottom: 1px solid var(--line); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 80px; }
+  .testi { background: var(--bg); padding: 48px 40px; border: 1px solid var(--line); border-radius: 8px; transition: transform 0.4s var(--ease); }
+  .testi:hover { transform: translateY(-5px); }
+  .testi-stars { color: var(--terracotta); letter-spacing: 4px; font-size: 1rem; margin-bottom: 24px; }
+  .testi p { font-family: var(--serif); font-style: italic; font-size: 1.2rem; line-height: 1.7; color: var(--ink); margin-bottom: 24px; }
+  .testi-author { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+  .contact-info h3 { font-size: 1.8rem; margin: 0 0 24px; color: var(--ink); }
+  .contact-info p, .contact-info a { font-size: 1.1rem; line-height: 1.9; color: var(--ink-soft); }
+  .contact-info a { border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+  .contact-info a:hover { color: var(--terracotta-deep); border-color: var(--terracotta-deep); }
+  
+  .contact-meta { margin: 40px 0; padding: 40px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .contact-meta .row { display: flex; gap: 24px; padding: 12px 0; align-items: flex-start; }
+  .contact-meta .icon { width: 24px; flex-shrink: 0; color: var(--terracotta); font-size: 1.2rem; font-family: var(--serif); font-style: italic; }
+  
+  .socials { display: flex; gap: 16px; margin-top: 32px; }
+  .socials a {
+    width: 48px; height: 48px; border: 1px solid var(--line); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; transition: all 0.4s var(--ease); background: white;
+  }
+  .socials a:hover { background: var(--ink); border-color: var(--ink); transform: translateY(-3px); }
+  .socials a:hover svg { fill: white; }
+  .socials svg { width: 20px; height: 20px; fill: var(--ink); transition: fill 0.3s; }
+  
+  form.contact-form { display: flex; flex-direction: column; gap: 32px; background: white; padding: 48px; border-radius: 8px; border: 1px solid var(--line); box-shadow: 0 20px 40px rgba(0,0,0,0.02); }
+  .field { position: relative; }
+  .field label {
+    display: block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 12px; font-weight: 600;
+  }
+  .field input, .field textarea, .field select {
+    width: 100%; padding: 16px 0; background: transparent; border: none;
+    border-bottom: 1px solid var(--line); font-family: var(--sans);
+    font-size: 1.05rem; color: var(--ink); outline: none; transition: border-color 0.4s, background 0.4s;
+  }
+  .field select { appearance: none; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%238B8174' d='M6 8L0 0h12z'/></svg>") no-repeat right 4px center; padding-right: 24px; cursor: pointer; }
+  .field textarea { resize: vertical; min-height: 120px; }
+  .field input:focus, .field textarea:focus, .field select:focus { border-bottom-color: var(--terracotta); }
+  .privacy-note { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+  .form-success { display: none; padding: 24px; background: var(--bg); border: 1px solid var(--sage); font-size: 1rem; color: var(--ink); border-radius: 4px; }
+  .form-success.show { display: block; animation: badgeIn 0.5s var(--ease); }
+  
+  .map-wrap { margin-top: 100px; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); height: 480px; }
+  .map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(0.4) contrast(1.1) opacity(0.9); transition: filter 0.5s; }
+  .map-wrap:hover iframe { filter: grayscale(0) contrast(1) opacity(1); }
+
+  /* FOOTER */
+  footer.site { padding: 100px 0 40px; background: var(--ink); color: var(--bg); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; margin-bottom: 80px; }
+  footer.site h4 { font-family: var(--serif); font-size: 2.2rem; color: white; font-weight: 400; margin-bottom: 24px; line-height: 1.2; }
+  footer.site p, footer.site a { color: rgba(250,248,245,0.7); font-size: 0.95rem; line-height: 1.9; }
+  footer.site a { transition: color 0.3s; }
+  footer.site a:hover { color: white; }
+  .foot-col strong { display: block; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 24px; font-weight: 600; }
+  .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .foot-bottom {
+    padding-top: 40px; border-top: 1px solid rgba(250,248,245,0.1);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+    font-size: 0.85rem; color: rgba(250,248,245,0.5);
+  }
+
+  /* RESPONSIVE */
+  @media(max-width: 1024px) {
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.8rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 60px; }
+    .hero-visual-wrapper { justify-content: center; margin-top: 20px; }
+    .hero-arch { max-width: 400px; }
+    .hero-badge { left: 50%; transform: translateX(-50%); bottom: 20px; width: 85%; justify-content: center; }
+    @keyframes badgeIn { to { opacity: 1; transform: translateX(-50%); } }
+    .welcome-grid, .about-hero, .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+    .services-grid, .testi-grid, .practical { grid-template-columns: 1fr; }
+    .pillar { grid-template-columns: 1fr; gap: 20px; padding: 40px 0; }
+    .about-credentials, .foot-grid { grid-template-columns: 1fr; gap: 40px; }
+    .cred { border-right: none; border-bottom: 1px solid var(--line); padding: 24px 0; }
+    .cred:last-child { border-bottom: none; }
+  }
+
+  @media(max-width: 768px) {
+    nav.links { display: none; }
+    .hamburger { display: flex; }
+    .nav-inner .btn { display: none; }
+    .container { padding: 0 24px; }
+    section.block, .welcome, .testimonials { padding: 80px 0; }
+    .hero { padding: 120px 0 80px; }
+    .hero-stats { flex-direction: column; gap: 24px; }
+    .inclusion { padding: 48px 32px; }
+    form.contact-form { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="brand" data-route="home">
+      <img src="https://github.com/agelmet/PLIAKOU/blob/main/logooo.jpg?raw=true" alt="Λογότυπο Μαρία Πλιάκου" />
+      <div class="brand-text">
+        <strong>Μαρία Πλιάκου</strong>
+        <span>Κλινική Ψυχολόγος</span>
+      </div>
+    </div>
+    <nav class="links">
+      <a data-route="about">Σχετικά με εμένα</a>
+      <a data-route="services">Υπηρεσίες</a>
+      <a data-route="approach">Θεραπευτική Προσέγγιση</a>
+      <a data-route="contact">Επικοινωνία</a>
+    </nav>
+    <button class="btn btn-primary btn-sm" data-route="contact">Κλείστε Ραντεβού</button>
+    <button class="hamburger" id="hamburger" aria-label="Μενού"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a data-route="home">Αρχική</a>
+  <a data-route="about">Σχετικά με εμένα</a>
+  <a data-route="services">Υπηρεσίες</a>
+  <a data-route="approach">Θεραπευτική Προσέγγιση</a>
+  <a data-route="contact">Επικοινωνία</a>
+</div>
+
+<main id="home" class="page is-active">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <div class="eyebrow hero-eyebrow">Αθηνα & Online</div>
+          <h1>Ένας χώρος για να <em>ξεκουραστείς</em> από τον εαυτό σου.</h1>
+          <p class="lead reveal delay-1">Μαζί χτίζουμε τα εργαλεία που χρειάζεσαι — για να διαχειριστείς το άγχος, να ξεπεράσεις τα εμπόδια και να επιστρέψεις στη ζωή που πραγματικά θέλεις να ζεις.</p>
+          <div class="hero-ctas reveal delay-2">
+            <button class="btn btn-primary" data-route="contact">Κλειστε Ραντεβου</button>
+            <button class="btn btn-outline" data-route="about">Γνωριστε τη Μαρια</button>
+          </div>
+          <div class="hero-stats reveal delay-3">
+            <div class="stat"><strong>8+</strong><span>Έτη Κλινικής Εμπειρίας</span></div>
+            <div class="stat"><strong>MSc</strong><span>Leiden University, Ολλανδία</span></div>
+          </div>
+        </div>
+        
+        <div class="hero-visual-wrapper">
+          <div class="hero-shape"></div>
+          <div class="hero-arch">
+            <img src="https://cdn.doctoranytime.gr/profileimages/1e996f8a-0413-4e48-b398-f61643e23e92.webp" alt="Μαρία Πλιάκου - Κλινική Ψυχολόγος"/>
+            
+            <div class="hero-badge">
+              <div class="hero-badge-icon">M</div>
+              <div class="hero-badge-text">
+                <strong>Μαρία Πλιάκου</strong>
+                <span>Αδειούχος Κλιν. Ψυχολόγος CBT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="welcome">
+    <div class="container">
+      <div class="welcome-grid">
+        <div class="reveal">
+          <div class="eyebrow" style="margin-bottom:24px">Καλωσήρθατε</div>
+          <h2>Ξεκινάμε ακριβώς από εκεί που είσαι <em>τώρα</em>.</h2>
+        </div>
+        <div class="welcome-text reveal delay-1">
+          <p>Το γραφείο μου είναι ένα ήρεμο, ασφαλές μέρος — χωρίς κρίσεις, χωρίς βιασύνη. Εδώ δεν χρειάζεται να εξηγήσεις εξαρχής γιατί νιώθεις όπως νιώθεις. Σκοπός είναι να προσφέρουμε χώρο στη σκέψη σου.</p>
+          <p>Εργάζομαι με ενήλικες, εφήβους και γονείς, δια ζώσης στην Καισαριανή και διαδικτυακά — χρησιμοποιώντας επιστημονικά αναγνωρισμένες μεθόδους (CBT) που φέρνουν ουσιαστικά, ορατά αποτελέσματα στην καθημερινότητά σου.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Μαρτυρίες</div>
+        <h2>Λόγια από ανθρώπους που εμπιστεύθηκαν τη <em>διαδικασία</em></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi reveal delay-1">
+          <div class="testi-stars">★★★★★</div>
+          <p>«Από την πρώτη κιόλας συνεδρία ένιωσα πως με καταλαβαίνει σε βάθος. Η προσέγγισή της είναι ζεστή αλλά και απίστευτα δομημένη.»</p>
+          <div class="testi-author">Άγγελος · 08 Ιουλ 2025</div>
+        </div>
+        <div class="testi reveal delay-2">
+          <div class="testi-stars">★★★★★</div>
+          <p>«Απευθύνθηκα στην κα. Πλιάκου σε μια περίοδο έντονου άγχους. Επαγγελματισμός και ενσυναίσθηση σε ίσα μέρη. Η βοήθειά της υπήρξε καθοριστική.»</p>
+          <div class="testi-author">Έφη · 01 Αυγ 2025</div>
+        </div>
+        <div class="testi reveal delay-3">
+          <div class="testi-stars">★★★★★</div>
+          <p>«Η συνεργασία μου υπήρξε μια πολύ θετική πρώτη ψυχοθεραπευτική εμπειρία. Απέκτησα εργαλεία που χρησιμοποιώ πλέον καθημερινά.»</p>
+          <div class="testi-author">Marily · 30 Αυγ 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="about" class="page">
+  <section class="block">
+    <div class="container">
+      <div class="about-hero">
+        <div class="about-photo reveal">
+          <img src="https://cdn.doctoranytime.gr/profileimages/1e996f8a-0413-4e48-b398-f61643e23e92.webp" alt="Μαρία Πλιάκου, Κλινική Ψυχολόγος"/>
+        </div>
+        <div class="reveal delay-1">
+          <div class="eyebrow" style="margin-bottom:24px">Σχετικά με εμένα</div>
+          <h2 style="margin-bottom:16px">Μαρία Πλιάκου</h2>
+          <p style="font-family:var(--serif);font-size:1.6rem;font-style:italic;color:var(--terracotta-deep);margin-bottom:32px">Κλινική Ψυχολόγος · Ψυχοθεραπεύτρια CBT</p>
+          <p style="font-size:1.15rem;line-height:1.8;margin-bottom:24px;color:var(--ink);">Πιστεύω ότι η θεραπεία δεν είναι μια παθητική διαδικασία — είναι συνεργατική δουλειά.</p>
+          <p style="font-size:1.05rem;line-height:1.8;">Ο ρόλος μου δεν είναι να σου δώσω έτοιμες απαντήσεις, αλλά να σε βοηθήσω να τις βρεις μόνος σου, ένοπλος με νέες δεξιότητες και μια βαθύτερη, ειλικρινή κατανόηση του εαυτού σου.</p>
+          <span class="license-tag">Αρ. Αδείας: 12918 / 2-6-2017</span>
+        </div>
+      </div>
+
+      <div class="bio-block reveal">
+        <h3>Σπουδές & Εξειδίκευση</h3>
+        <p>Σπούδασα Ψυχολογία στο Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης, ολοκληρώνοντας μέρος των σπουδών μου στο Universität Konstanz της Γερμανίας. Στη συνέχεια απέκτησα Μεταπτυχιακό Τίτλο (MSc) στην Κλινική Ψυχολογία από το Leiden University της Ολλανδίας — ένα από τα κορυφαία πανεπιστήμια στον κλάδο παγκοσμίως.</p>
+        <p>Ακολούθησε 4ετής εντατική εξειδίκευση στη Γνωσιακή Συμπεριφορική Θεραπεία (CBT) μέσω της Ελληνικής Εταιρείας Γνωσιακής-Συμπεριφοριστικής Θεραπείας (ΕΓΣΣ), και πολυετής εμπειρία στο Ινστιτούτο Έρευνας και Θεραπείας της Συμπεριφοράς (ΙΕΘΣ) στην Αθήνα.</p>
+      </div>
+
+      <div class="bio-block reveal">
+        <h3>Από το Νοσοκομείο στο Ιδιωτικό Γραφείο</h3>
+        <p>Πριν ανοίξω το ιδιωτικό μου γραφείο, έχτισα την κλινική μου εμπειρία εκεί που τα πράγματα είναι πιο απαιτητικά: στο Ψυχιατρικό Νοσοκομείο Θεσσαλονίκης (ΨΝΘ) και στην Ψυχιατρική Κλινική του Νοσοκομείου Παπαγεωργίου. Στο πλαίσιο των σπουδών μου στην Ολλανδία, εργάστηκα και στο LUTC (Leiden University Treatment Centre).</p>
+        <p>Αυτή η εμπειρία με έχει εκπαιδεύσει να προσεγγίζω κάθε άνθρωπο με απόλυτη ψυχραιμία και έλλειψη κρίσης — ανεξάρτητα από το βάρος αυτού που φέρνει μαζί του.</p>
+      </div>
+
+      <div class="bio-block reveal">
+        <h3>Γιατί εξειδικεύτηκα στη CBT</h3>
+        <p>Διάλεξα τη Γνωσιακή Συμπεριφορική Θεραπεία γιατί πιστεύω στην αλλαγή που μπορείς να δεις. Η CBT δεν είναι απλώς μια συζήτηση — είναι ένα δομημένο ταξίδι με συγκεκριμένους στόχους και αποτελέσματα. Είναι η πιο επιστημονικά τεκμηριωμένη προσέγγιση για το άγχος, την κατάθλιψη και τους ιδεοψυχαναγκασμούς.</p>
+      </div>
+
+      <div class="about-credentials reveal">
+        <div class="cred"><strong>AUTh + Konstanz</strong><span>Προπτυχιακές σπουδές</span></div>
+        <div class="cred"><strong>Leiden University</strong><span>MSc Κλινική Ψυχολογία</span></div>
+        <div class="cred"><strong>ΕΓΣΣ · ΙΕΘΣ</strong><span>Εξειδίκευση CBT 4 ετών</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="services" class="page">
+  <section class="block alt-bg">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Υπηρεσίες</div>
+        <h2>Πώς μπορώ να σε βοηθήσω</h2>
+        <p>Κάθε θεραπεία διαμορφώνεται γύρω από εσένα — τις ανάγκες σου, τον ρυθμό σου, τους στόχους σου. Παρακάτω θα βρεις τους βασικούς τομείς στους οποίους εξειδικεύομαι.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service reveal">
+          <div class="service-num">— 01</div>
+          <h3>Ατομική Ψυχοθεραπεία Ενηλίκων</h3>
+          <div class="tagline">Άγχος · Κατάθλιψη · OCD · Burnout</div>
+          <p>Δουλεύουμε μαζί σε δομημένες συνεδρίες, χρησιμοποιώντας τεχνικές CBT για να αλλάξουμε τα μοτίβα σκέψης που σε κρατούν πίσω.</p>
+          <ul>
+            <li>Αγχώδεις διαταραχές & κρίσεις πανικού</li>
+            <li>Κατάθλιψη & χαμηλή διάθεση</li>
+            <li>Ιδεοψυχαναγκαστική Διαταραχή (OCD)</li>
+            <li>Επαγγελματική εξουθένωση & σχέσεις</li>
+          </ul>
+          <div class="service-foot">Συνεδρίες 50' · Δια ζώσης & Online</div>
+        </div>
+
+        <div class="service reveal delay-1">
+          <div class="service-num">— 02</div>
+          <h3>Ατομική Ψυχοθεραπεία Εφήβων</h3>
+          <div class="tagline">12–18 ετών · Σχολείο · Ταυτότητα · ΔΕΠΥ</div>
+          <p>Διαθέτω ειδική κατάρτιση στη θεραπεία εφήβων, προσαρμόζοντας τη CBT στις ανάγκες και την ηλικία κάθε νέου ανθρώπου.</p>
+          <ul>
+            <li>Σχολικό άγχος & φόβος απόδοσης</li>
+            <li>Κοινωνικός φόβος & bullying</li>
+            <li>Προβλήματα προσοχής & ΔΕΠΥ</li>
+            <li>Δυσκολίες ταυτότητας & αυτοεκτίμησης</li>
+          </ul>
+          <div class="service-foot">Συνεδρίες 50' · Ηλικία 12–18</div>
+        </div>
+
+        <div class="service reveal">
+          <div class="service-num">— 03</div>
+          <h3>Συμβουλευτική Γονέων</h3>
+          <div class="tagline">Κατανόηση · Επικοινωνία · Όρια</div>
+          <p>Μαθαίνουμε μαζί πώς να αποκωδικοποιείς τη συμπεριφορά του παιδιού σου και πώς να χτίζεις ένα σταθερό πλαίσιο στο σπίτι.</p>
+          <ul>
+            <li>Αποκωδικοποίηση παιδικής συμπεριφοράς</li>
+            <li>Τεχνικές επικοινωνίας χωρίς συγκρούσεις</li>
+            <li>Θέσπιση υγιών ορίων</li>
+            <li>Διαχείριση κρίσεων & θυμού</li>
+          </ul>
+          <div class="service-foot">Συνεδρίες 50' · Δια ζώσης & Online</div>
+        </div>
+
+        <div class="service reveal delay-1">
+          <div class="service-num">— 04</div>
+          <h3>Online Συνεδρίες</h3>
+          <div class="tagline">Ευελιξία · Ασφάλεια · Εχεμύθεια</div>
+          <p>Όλες οι υπηρεσίες του γραφείου παρέχονται και διαδικτυακά, με την ίδια δομή και θεραπευτική ποιότητα, μέσω ασφαλούς πλατφόρμας.</p>
+          <p style="margin-top:16px">Ιδανικό για ανθρώπους που ζουν εκτός Αθήνας, στο εξωτερικό, ή που προτιμούν την άνεση του δικού τους χώρου.</p>
+          <div class="service-foot">Διαθέσιμο για όλες τις υπηρεσίες</div>
+        </div>
+      </div>
+
+      <div class="practical reveal">
+        <div><strong>Διάρκεια</strong><span>50 λεπτά ανά συνεδρία</span></div>
+        <div><strong>Χώρος</strong><span>Μίσθου 2, Καισαριανή · & Online</span></div>
+        <div><strong>Ραντεβού</strong><span>Μέσω φόρμας ή τηλεφώνου</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="approach" class="page">
+  <section class="block">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Θεραπευτική Προσέγγιση</div>
+        <h2>Πώς δουλεύουμε <em>μαζί</em></h2>
+      </div>
+      <p class="approach-intro reveal">Η Γνωσιακή Συμπεριφορική Θεραπεία (CBT) βασίζεται σε μια απλή αλλά ισχυρή ιδέα: <em>οι σκέψεις μας επηρεάζουν τα συναισθήματα και τη συμπεριφορά μας.</em> Μαθαίνοντας να τις αναγνωρίζουμε, μπορούμε να αλλάξουμε το πώς νιώθουμε και πώς δρούμε.</p>
+
+      <div class="pillars">
+        <div class="pillar reveal">
+          <div class="pillar-num">I.</div>
+          <div>
+            <h3>Δομή & Στόχοι</h3>
+          </div>
+          <div>
+            <p>Κάθε θεραπεία ξεκινά με αξιολόγηση. Ορίζουμε σαφείς, μετρήσιμους στόχους. Οι συνεδρίες έχουν δομή, και συχνά χρησιμοποιούμε μικρές «ασκήσεις» στο ενδιάμεσο για να εφαρμόζεις στην πράξη όσα ανακαλύπτουμε.</p>
+          </div>
+        </div>
+        <div class="pillar reveal delay-1">
+          <div class="pillar-num">II.</div>
+          <div>
+            <h3>Επιστήμη & Ανθρωπιά</h3>
+          </div>
+          <div>
+            <p>Χρησιμοποιώ κλινικά πρωτόκολλα ευρωπαϊκής προδιαγραφής — αλλά ο τρόπος που δουλεύω είναι ζεστός και άμεσος. Είμαι εκεί ως σύμμαχος, όχι ως κριτής ή ως μια αδιαπέραστη φιγούρα πίσω από ένα γραφείο.</p>
+          </div>
+        </div>
+        <div class="pillar reveal delay-2">
+          <div class="pillar-num">III.</div>
+          <div>
+            <h3>Απόλυτη Αποδοχή</h3>
+          </div>
+          <div>
+            <p>Η νοσοκομειακή μου εμπειρία μού επιτρέπει να μην τρομάζω εύκολα. Αυτό σου δίνει την ελευθερία να φέρεις στο γραφείο ό,τι φοβάσαι να πεις αλλού — γνωρίζοντας ότι θα αντιμετωπιστεί με απόλυτο σεβασμό.</p>
+          </div>
+        </div>
+        <div class="pillar reveal delay-3">
+          <div class="pillar-num">IV.</div>
+          <div>
+            <h3>Αυτονομία</h3>
+          </div>
+          <div>
+            <p>Η θεραπεία δεν είναι ένα μέρος που έρχεσαι για πάντα. Ο σκοπός μου είναι να σε εξοπλίσω με εργαλεία και γνώση, ώστε κάποια στιγμή να γίνεις ο θεραπευτής του εαυτού σου. Αυτή είναι η μεγαλύτερη επιτυχία.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="inclusion reveal">
+        <div class="eyebrow">Ασφάλεια & Συμπερίληψη</div>
+        <h3>Ένας χώρος για όλους</h3>
+        <p>Το γραφείο μου είναι ένας χώρος 100% απαλλαγμένος από κρίσεις. Προσφέρω επιβεβαιωτική (affirmative) θεραπεία σε ΛΟΑΤΚΙ+ άτομα — ένα ασφαλές πλαίσιο για την εξερεύνηση της ταυτότητας, μακριά από κοινωνικό στίγμα.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="contact" class="page">
+  <section class="block alt-bg">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Επικοινωνία</div>
+        <h2>Κάντε το <em>πρώτο</em> βήμα</h2>
+        <p>Δεν χρειάζεται να έχεις όλες τις απαντήσεις για να επικοινωνήσεις. Συμπλήρωσε τη φόρμα ή επικοινώνησε απευθείας — θα σου απαντήσω σύντομα.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Στοιχεία Επικοινωνίας</h3>
+          <div class="contact-meta">
+            <div class="row"><div class="icon">◉</div><div>Μίσθου 2, Τ.Κ. 16121<br/>Καισαριανή, Αθήνα<br/><span style="color:var(--muted);font-size:0.9rem">Περιοχή Κάραβελ · Μετρό Ευαγγελισμός</span></div></div>
+            <div class="row"><div class="icon">✆</div><div><a href="tel:+306979665223">+30 697 9665 223</a></div></div>
+            <div class="row"><div class="icon">✉</div><div><a href="mailto:info@mariapliakou.com">info@mariapliakou.com</a></div></div>
+          </div>
+          <h3>Ωράριο</h3>
+          <p>Δευτέρα – Παρασκευή · 09:00 – 21:00<br/>Σάββατο · κατόπιν ραντεβού</p>
+          <div class="socials">
+            <a href="#" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.86 5.86 0 00-2.12 1.38A5.86 5.86 0 00.64 4.13C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.32.8.74 1.48 1.38 2.12.64.64 1.32 1.06 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.8-.32 1.48-.74 2.12-1.38.64-.64 1.06-1.32 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.86 5.86 0 00-1.38-2.12A5.86 5.86 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal delay-1" id="contactForm">
+          <div class="field"><label for="name">Όνομα *</label><input type="text" id="name" required /></div>
+          <div class="field"><label for="email">Email *</label><input type="email" id="email" required /></div>
+          <div class="field"><label for="phone">Τηλέφωνο (προαιρετικό)</label><input type="tel" id="phone" /></div>
+          <div class="field">
+            <label for="topic">Θέμα</label>
+            <select id="topic">
+              <option>Ατομική ψυχοθεραπεία ενηλίκων</option>
+              <option>Ψυχοθεραπεία εφήβων</option>
+              <option>Συμβουλευτική γονέων</option>
+              <option>Online συνεδρίες</option>
+              <option>Άλλο</option>
+            </select>
+          </div>
+          <div class="field"><label for="message">Μήνυμα *</label><textarea id="message" required></textarea></div>
+          <p class="privacy-note">Τα δεδομένα σας χρησιμοποιούνται αποκλειστικά για την επικοινωνία μαζί σας και προστατεύονται σύμφωνα με τον GDPR.</p>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start">Αποστολη Μηνυματος</button>
+          <div class="form-success" id="formSuccess">Σας ευχαριστώ. Το μήνυμά σας στάλθηκε — θα επικοινωνήσω μαζί σας σύντομα.</div>
+        </form>
+      </div>
+
+      <div class="map-wrap reveal">
+        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox=23.7560%2C37.9590%2C23.7700%2C37.9680&layer=mapnik&marker=37.9635%2C23.7630"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <h4>Δομημένη αλλαγή.<br/><em>Ορατά</em> αποτελέσματα.</h4>
+        <p style="margin-top:24px;max-width:360px">Μαρία Πλιάκου — Κλινική Ψυχολόγος, Ψυχοθεραπεύτρια CBT. Επιστημονικά τεκμηριωμένη ψυχοθεραπεία στην Καισαριανή & Online.</p>
+      </div>
+      <div class="foot-col">
+        <strong>Πλοηγηση</strong>
+        <ul>
+          <li><a style="cursor:pointer" data-route="home">Αρχική</a></li>
+          <li><a style="cursor:pointer" data-route="about">Σχετικά με εμένα</a></li>
+          <li><a style="cursor:pointer" data-route="services">Υπηρεσίες</a></li>
+          <li><a style="cursor:pointer" data-route="approach">Προσέγγιση</a></li>
+          <li><a style="cursor:pointer" data-route="contact">Επικοινωνία</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <strong>Επικοινωνια</strong>
+        <ul>
+          <li>Μίσθου 2, Καισαριανή</li>
+          <li><a href="tel:+306979665223">+30 697 9665 223</a></li>
+          <li><a href="mailto:info@mariapliakou.com">info@mariapliakou.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Μαρία Πλιάκου. Με επιφύλαξη παντός δικαιώματος.</div>
+      <div>Αρ. Αδείας Ασκήσεως Επαγγέλματος: 12918 / 2-6-2017</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Router Setup
+  const pages = document.querySelectorAll('main.page');
+  const navLinks = document.querySelectorAll('nav.links a');
+  
+  function route(target) {
+    pages.forEach(p => p.classList.toggle('is-active', p.id === target));
+    navLinks.forEach(a => a.classList.toggle('active', a.dataset.route === target));
+    history.replaceState(null, '', '#' + target);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    
+    // Close mobile menu if open
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+    
+    // Reset and trigger Reveal Animations for new page
+    document.querySelectorAll('.reveal').forEach(el => el.classList.remove('in'));
+    setTimeout(() => {
+      document.querySelectorAll('.is-active .reveal').forEach(el => {
+        const r = el.getBoundingClientRect();
+        if(r.top < window.innerHeight * 0.9) el.classList.add('in');
+      });
+    }, 100);
+  }
+
+  // Event Listeners for Routes
+  document.querySelectorAll('[data-route]').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); route(el.dataset.route); });
+  });
+
+  // Handle initial URL load
+  const initial = (location.hash || '#home').slice(1);
+  if(document.getElementById(initial)) route(initial);
+
+  // Mobile Hamburger Toggle
+  document.getElementById('hamburger').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+
+  // Sticky Blur Nav on Scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Intersection Observer for Scroll Reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { 
+      if(e.isIntersecting) { 
+        e.target.classList.add('in'); 
+        io.unobserve(e.target);
+      } 
+    });
+  }, { threshold: 0.15 });
+  
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Form Submission Fake Handler
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    document.getElementById('formSuccess').classList.add('show');
+    e.target.reset();
+    setTimeout(() => document.getElementById('formSuccess').classList.remove('show'), 6000);
+  });
+</script>
+</body>
+</html>
